@@ -14,7 +14,7 @@ function updateFontToMontserratByPage(slideNumber) {
       pageElement.getPageElementType() == SlidesApp.PageElementType.TABLE
     ) {
       var textRange;
-      console.log("オブジェクトのタイプ: " + pageElement.getPageElementType());
+      //console.log("オブジェクトのタイプ: " + pageElement.getPageElementType());
 
       if (pageElement.getPageElementType() == SlidesApp.PageElementType.TABLE) {
         var numRows = pageElement.asTable().getNumRows();
