@@ -36,7 +36,7 @@ https://docs.google.com/presentation/d/1ygqnknknpSCoLOjGaqEIU1jiogQUyC7ywHTjEigM
       1. ![Alt text](image-3.png)
 2. 一旦ブラウザ更新
 3. 拡張機能から起動
-   1. ![Alt text](image-4.png)
+   ![image](https://github.com/hanafusay/gas-clasp-project/assets/65750817/e2f11b66-64e9-446b-8aba-e855130c1af5)
 
 ## 毎回コピーしなくてもアドオンとして利用可能にする方法
 
