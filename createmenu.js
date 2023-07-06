@@ -4,8 +4,10 @@ var currentSlide = null; // グローバル変数として currentSlide を定�
 function onOpen() {
   var ui = SlidesApp.getUi(); // ユーザインターフェースを取得
   ui.createMenu("フォントを編集") // カスタムメニューを作成
-    .addItem("Update Font to Montserrat (By Page)", "showPromptForPage") // メニューアイテムを追加
-    .addItem("Update Font to Montserrat", "updateFontToMontserrat") // メニューアイテムを追加
+    // メニューアイテムを追加
+    .addItem("スライド内すべてのテキストをKosguiにする", "updateFontToKosugi")
+    .addItem("英数字と一部の記号をMontserratにする(ページを指定)", "showPromptForPage")
+    .addItem("英数字と一部の記号をMontserratにする(スライド内すべて)", "updateFontToMontserrat")
     .addToUi(); // メニューをユーザインターフェースに追加
 }
 
