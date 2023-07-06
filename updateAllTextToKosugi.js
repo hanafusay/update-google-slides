@@ -2,10 +2,11 @@ function updateFontToKosugi() {
   var presentation = SlidesApp.getActivePresentation(); // アクティブなプレゼンテーションを取得
   var slides = presentation.getSlides(); // すべてのスライドを取得
 
-  slides.forEach(function (slide) {
-    var pageElements = slide.getPageElements();
+  for (var i = 0; i < slides.length; i++) {
+    var slide = slides[i];
+    var pageElements = slide.getPageElements(); // スライド上のすべてのページ要素を取得
     processElementsKosugi(pageElements);
-  });
+  }
 }
 
 function processElementsKosugi(pageElements) {
@@ -27,11 +28,17 @@ function processElementsKosugi(pageElements) {
         var numCols = table.getNumColumns();
         for (var row = 0; row < numRows; row++) {
           for (var col = 0; col < numCols; col++) {
-            var cell = table.getCell(row, col);
-            if (cell.getText().asString().trim() !== "") {
-              // セルにテキストがあるか確認
+            try {
+              var cell = table.getCell(row, col);
               var cellText = cell.getText();
-              applyKosugi(cellText);
+              if (cellText.asString().trim() !== "") {
+                // セルにテキストがあるか確認
+                applyKosugi(cellText);
+              }
+            } catch (error) {
+              // エラーが発生した（ヘッドセルでないセルに対してgetText()を呼び出した）場合は、
+              // そのセルを無視して次のセルに進む
+              continue;
             }
           }
         }
@@ -46,11 +53,12 @@ function processElementsKosugi(pageElements) {
 }
 
 function applyKosugi(textRange) {
-  var runs = textRange.getRuns(); // テキストの各セクションを取得
-  for (var i = 0; i < runs.length; i++) {
-    var run = runs[i];
-    var textStyle = run.getTextStyle();
-    var isBold = textStyle.isBold(); // 元のテキストが太字かどうかを取得
+  var text = textRange.asString(); // テキスト全体を文字列として取得
+
+  // 文字列全体を走査し、文字が英数字であるか確認
+  for (var k = 0; k < text.length; k++) {
+    var textStyle = textRange.getRange(k, k + 1).getTextStyle(); // 該当文字のスタイルを取得
+    var isBold = textStyle.isBold(); // 元の文字がBoldだったかどうか確認
     textStyle.setFontFamily("Kosugi");
     textStyle.setBold(isBold); // 元の文字がBoldだった場合、Boldに戻す
   }
