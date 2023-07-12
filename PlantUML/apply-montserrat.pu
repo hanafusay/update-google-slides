@@ -1,0 +1,21 @@
+@startuml
+class ApplyMontserrat {
+  + applyMontserrat(textRange: TextRange): void
+}
+
+class TextRange {
+  + asString(): string
+  + getRange(start: number, end: number): TextRange
+  + getTextStyle(): TextStyle
+}
+
+class TextStyle {
+  + isBold(): boolean
+  + setFontFamilyAndWeight(fontFamily: string, weight: number): void
+  + setBold(isBold: boolean): void
+}
+
+ApplyMontserrat --> TextRange : uses
+TextRange --> TextStyle : uses
+
+@enduml

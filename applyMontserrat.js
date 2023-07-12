@@ -6,7 +6,7 @@ function applyMontserrat(textRange) {
     var char = text.charAt(k);
 
     // テキストが英数字か確認
-    if (/^([a-zA-Z0-9,%\/#@&])*$/.test(char)) {
+    if (/^([a-zA-Z0-9,%\/#@&+\-*])*$/.test(char)) {
       var textStyle = textRange.getRange(k, k + 1).getTextStyle(); // 該当文字のスタイルを取得
       var isBold = textStyle.isBold(); // 元の文字がBoldだったかどうか確認
       textStyle.setFontFamilyAndWeight("Montserrat", 500.0); // 英数字のテキストのフォントをMontserratに変更
