@@ -9,22 +9,7 @@
   - 元の文字列が Bold であれば Bold を維持します。
   - 結合された表オブジェクトでは左上セルのやつだけ置換されます。
 
-## 使い方(1)
-
-スライドのメニューから実行する。
-
-- 都度テンプレスライドをコピペすればスクリプトごとコピーされるので、初回の承認だけやって使う。
-- まずKosugiにして、Montserratにする。2段階。
-- ページを指定して実行もできる。
-- とはいえ、50 ページ程度なら全体に対して適応しても 10 秒くらいで終わることを確認済
-![image](https://github.com/hanafusay/gas-clasp-project/assets/65750817/e2f11b66-64e9-446b-8aba-e855130c1af5)
-
-
-### テンプレスライド
-
-https://docs.google.com/presentation/d/1ygqnknknpSCoLOjGaqEIU1jiogQUyC7ywHTjEigMdRM/edit#slide=id.g244c1510e6d_0_59
-
-## 使い方(2)
+## 使い方
 
 アドオンを入れる。
 
