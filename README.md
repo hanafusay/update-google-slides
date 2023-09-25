@@ -20,6 +20,7 @@
 ## 使い方
 
 アドオンを入れる。
+https://workspace.google.com/u/0/marketplace/app/gas%E3%81%A7googleslide%E3%81%AE%E6%93%8D%E4%BD%9C/92969051818
 
 1. アドオンを取得する。
    1. ![Alt text](image-1.png)
@@ -31,7 +32,7 @@
 3. 拡張機能から起動
    ![image](https://github.com/hanafusay/gas-clasp-project/assets/65750817/e2f11b66-64e9-446b-8aba-e855130c1af5)
 
-## 毎回コピーしなくてもアドオンとして利用可能にする方法
+## 【参考】毎回GASがついたテンプレスライドをコピーしなくてもアドオンとして利用可能にする方法
 
 - GCP プロジェクト
   https://console.cloud.google.com/welcome?authuser=0&project=wired-framework-391207
