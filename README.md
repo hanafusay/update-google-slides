@@ -98,6 +98,7 @@ make push-prod
 ### 参考リンク
 
 - **内部アプリ**: [Google Workspace Marketplace - 内部アプリ](https://workspace.google.com/u/0/marketplace/app/gas%E3%81%A7googleslide%E3%81%AE%E6%93%8D%E4%BD%9C/***REMOVED***)
+- **本番用スクリプト**: https://script.google.com/home/projects/***REMOVED***/edit
 - **テスト用スライド**: https://docs.google.com/presentation/d/***REMOVED***/edit
 - **GCP プロジェクト**: https://console.cloud.google.com/welcome?authuser=0&project=***REMOVED***
 - **参考サイト**: https://officeforest.org/wp/google-spreadsheet%E7%94%A8%E3%81%AE%E7%B5%84%E7%B9%94%E5%86%85%E3%82%A2%E3%83%89%E3%82%AA%E3%83%B3%E3%82%92%E4%BD%9C%E6%88%90%E3%81%99%E3%82%8B%E3%80%90gas%E3%80%91/
