@@ -39,28 +39,49 @@ Google スライドを開き、「拡張機能」→「フォントを編集」�
 
 ```
 update-google-slides-1/
-├── src/              # GASソースコード
-├── docs/             # ドキュメント・画像
-├── Makefile          # ビルドツール
-└── switch-clasp.sh   # プロジェクト切り替えスクリプト
+├── src/                    # GASソースコード
+├── docs/                   # ドキュメント・画像
+├── Makefile                # ビルドツール
+├── switch-clasp.sh         # プロジェクト切り替えスクリプト
+├── .clasp.prod.json        # 本番環境のclasp設定
+├── .clasp.test.json        # テスト環境のclasp設定
+└── .clasp.json             # 現在の環境設定（自動生成）
 ```
+
+**注意**: `.clasp.json` は `switch-clasp.sh` によって `.clasp.prod.json` または `.clasp.test.json` から自動生成されます。直接編集する必要はありません。
 
 ### 開発環境のセットアップ
 
-詳細は [TESTING.md](TESTING.md) を参照してください。
+#### セットアップ（初回のみ）
 
-#### クイックスタート
+1. 新しい Google スライドを作成
+2. 「拡張機能」→「Apps Script」をクリック
+3. GAS エディタで「プロジェクトの設定」（歯車アイコン）→「スクリプト ID」をコピー
+4. 以下のコマンドで設定：
 
 ```bash
-# テスト用プロジェクトの設定
-make setup-test SCRIPT_ID=<スクリプトID>
+make setup-test SCRIPT_ID=<取得したスクリプトID>
+```
 
-# テスト用にプッシュ
+#### 動作確認
+
+```bash
+# テスト用プロジェクトにコードをプッシュ
+# （内部で switch-clasp.sh が .clasp.test.json を .clasp.json にコピーします）
 make push-test
 
-# 本番用にプッシュ
+# スライドをリロードして、メニューから各機能をテスト
+```
+
+#### 本番用にプッシュ
+
+```bash
+# 本番用プロジェクトにコードをプッシュ
+# （内部で switch-clasp.sh が .clasp.prod.json を .clasp.json にコピーします）
 make push-prod
 ```
+
+**補足**: `make push-test` や `make push-prod` は、内部で `switch-clasp.sh` を呼び出して `.clasp.json` を切り替えてから `clasp push` を実行します。
 
 ### デプロイと公開
 
