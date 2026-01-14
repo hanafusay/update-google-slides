@@ -8,7 +8,11 @@
     "https://www.googleapis.com/auth/presentations"
   ],
   "addOns": {
-    "sheets": {
+    "common": {
+      "name": "Update Slide Fonts",
+      "logoUrl": "https://www.gstatic.com/images/branding/product/1x/apps_script_48dp.png"
+    },
+    "slides": {
       "homepageTrigger": {
         "runFunction": "onInstall"
       }
