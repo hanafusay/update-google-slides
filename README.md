@@ -1,41 +1,109 @@
-# Google スライドのフォントから、特定の文字を Montserrat に置換するスクリプト
+# Google スライド フォント編集アドオン
 
-## Ver3 @2023/07/12
-次に一致する場合Montserrat変換対象とする。
->大文字と小文字のアルファベット、数字、および%,/,#,@,&,+, -, * の特殊文字
+Google スライドのフォントを一括で編集するためのアドオンです。
 
-## Ver2 @2023/07/06
-- Kosugi置換スクリプトを追加
-- グループ化されたオブジェクトにも対応
+## 機能
 
-## Ver1.@2023/06/28 
+- **Kosugi 変換**: スライド内のすべてのテキストを Kosugi フォントに変換
+- **Montserrat 変換**: 英数字と一部の記号（%, /, #, @, &, +, -, \*）を Montserrat フォントに変換
+  - 全スライド対象
+  - 指定ページのみ
+- **Noto Sans 変換**: スライド内のすべてのテキストを Noto Sans JP フォントに変換
 
-- フォント置換対象
-  英数字、「,」「%」「/」「#」「@」「&」
+### 特徴
 
-- その他
-  - 元の文字列が Bold であれば Bold を維持します。
-  - 結合された表オブジェクトでは左上セルのやつだけ置換されます。
+- 元の Bold スタイルを維持
+- テーブル内のテキストにも対応
+- グループ化されたオブジェクト内のテキストにも対応
+
+## インストール方法
+
+1. [Google Workspace Marketplace](https://workspace.google.com/u/0/marketplace/app/gas%E3%81%A7googleslide%E3%81%AE%E6%93%8D%E4%BD%9C/***REMOVED***) からアドオンをインストール
+2. ブラウザを更新
+3. Google スライドで「拡張機能」→「フォントを編集」から機能を利用
 
 ## 使い方
 
-アドオンを入れる。
-https://workspace.google.com/u/0/marketplace/app/gas%E3%81%A7googleslide%E3%81%AE%E6%93%8D%E4%BD%9C/***REMOVED***
+Google スライドを開き、「拡張機能」→「フォントを編集」メニューから以下の機能を選択できます：
 
-1. アドオンを取得する。
-   1. ![Alt text](image-1.png)
-   2. 内部アプリから、アドオンを選択
-      1. ![Alt text](image-2.png)
-   3. インストール
-      1. ![Alt text](image-3.png)
-2. 一旦ブラウザ更新
-3. 拡張機能から起動
-   ![image](https://github.com/hanafusay/gas-clasp-project/assets/65750817/e2f11b66-64e9-446b-8aba-e855130c1af5)
+- スライド内すべてのテキストを Kosgui にする
+- 英数字と一部の記号を Montserrat にする（ページを指定）
+- 英数字と一部の記号を Montserrat にする（スライド内すべて）
+- すべてのテキストを Noto Sans にする
 
-## 【参考】毎回GASがついたテンプレスライドをコピーしなくてもアドオンとして利用可能にする方法
+---
 
-- GCP プロジェクト
-  https://console.cloud.google.com/welcome?authuser=0&project=***REMOVED***
+## 開発者向け情報
 
-- 参考にしたサイト
-  https://officeforest.org/wp/2022/12/24/google-spreadsheet%E7%94%A8%E3%81%AE%E7%B5%84%E7%B9%94%E5%86%85%E3%82%A2%E3%83%89%E3%82%AA%E3%83%B3%E3%82%92%E4%BD%9C%E6%88%90%E3%81%99%E3%82%8B%E3%80%90gas%E3%80%91/
+### プロジェクト構造
+
+```
+update-google-slides-1/
+├── src/              # GASソースコード
+├── docs/             # ドキュメント・画像
+├── Makefile          # ビルドツール
+└── switch-clasp.sh   # プロジェクト切り替えスクリプト
+```
+
+### 開発環境のセットアップ
+
+詳細は [TESTING.md](TESTING.md) を参照してください。
+
+#### クイックスタート
+
+```bash
+# テスト用プロジェクトの設定
+make setup-test SCRIPT_ID=<スクリプトID>
+
+# テスト用にプッシュ
+make push-test
+
+# 本番用にプッシュ
+make push-prod
+```
+
+### デプロイと公開
+
+アドオンを公開するには、以下の手順が必要です：
+
+1. **デプロイ**: GAS エディタから「デプロイ」→「新しいデプロイ」で拡張機能としてデプロイ
+2. **GCP での公開設定**: Google Workspace Marketplace SDK で内部アプリとして公開設定
+
+詳細な手順は[参考サイト](https://officeforest.org/wp/google-spreadsheet%E7%94%A8%E3%81%AE%E7%B5%84%E7%B9%94%E5%86%85%E3%82%A2%E3%83%89%E3%82%AA%E3%83%B3%E3%82%92%E4%BD%9C%E6%88%90%E3%81%99%E3%82%8B%E3%80%90gas%E3%80%91/)を参照してください。
+
+### 参考リンク
+
+- **内部アプリ**: [Google Workspace Marketplace - 内部アプリ](https://workspace.google.com/u/0/marketplace/app/gas%E3%81%A7googleslide%E3%81%AE%E6%93%8D%E4%BD%9C/***REMOVED***)
+- **テスト用スライド**: https://docs.google.com/presentation/d/***REMOVED***/edit
+- **GCP プロジェクト**: https://console.cloud.google.com/welcome?authuser=0&project=***REMOVED***
+- **参考サイト**: https://officeforest.org/wp/google-spreadsheet%E7%94%A8%E3%81%AE%E7%B5%84%E7%B9%94%E5%86%85%E3%82%A2%E3%83%89%E3%82%AA%E3%83%B3%E3%82%92%E4%BD%9C%E6%88%90%E3%81%99%E3%82%8B%E3%80%90gas%E3%80%91/
+
+## バージョン履歴
+
+### Ver3 (2023/07/12)
+
+**Montserrat 変換対象の拡張**
+
+- 変換対象に以下の記号を追加: `%`, `/`, `#`, `@`, `&`, `+`, `-`, `*`
+- 変換対象の完全なリスト:
+  - 大文字と小文字のアルファベット
+  - 数字
+  - 特殊文字: `%`, `/`, `#`, `@`, `&`, `+`, `-`, `*`
+
+### Ver2 (2023/07/06)
+
+**新機能追加と機能改善**
+
+- **Kosugi 変換機能を追加**
+  - スライド内のすべてのテキストを Kosugi フォントに変換する機能を追加
+- **グループ化オブジェクトへの対応**
+  - グループ化されたオブジェクト内のテキストにも変換処理を適用
+
+### Ver1 (2023/06/28)
+
+**初回リリース**
+
+- **Montserrat 変換機能**
+  - フォント置換対象: 英数字、`%`, `/`, `#`, `@`, `&`
+  - 元の文字列が Bold であれば Bold を維持
+  - 結合された表オブジェクトでは左上セルのみ置換
