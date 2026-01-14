@@ -6,8 +6,15 @@ function onOpen() {
   ui.createMenu("フォントを編集") // カスタムメニューを作成
     // メニューアイテムを追加
     .addItem("スライド内すべてのテキストをKosguiにする", "updateFontToKosugi")
-    .addItem("英数字と一部の記号をMontserratにする(ページを指定)", "showPromptForPage")
-    .addItem("英数字と一部の記号をMontserratにする(スライド内すべて)", "updateFontToMontserrat")
+    .addItem(
+      "英数字と一部の記号をMontserratにする(ページを指定)",
+      "showPromptForPage"
+    )
+    .addItem(
+      "英数字と一部の記号をMontserratにする(スライド内すべて)",
+      "updateFontToMontserrat"
+    )
+    .addItem("すべてのテキストをNoto Sansにする", "updateFontToNotoSans")
     .addToUi(); // メニューをユーザインターフェースに追加
 }
 
@@ -19,7 +26,11 @@ function onInstall(e) {
 // プロンプトを表示してスライド番号を入力させる関数
 function showPromptForPage() {
   var ui = SlidesApp.getUi(); // ユーザインターフェースを取得
-  var response = ui.prompt("スライド番号", "処理を適用するスライドの番号を入力してください:", ui.ButtonSet.OK_CANCEL); // プロンプトを表示
+  var response = ui.prompt(
+    "スライド番号",
+    "処理を適用するスライドの番号を入力してください:",
+    ui.ButtonSet.OK_CANCEL
+  ); // プロンプトを表示
 
   if (response.getSelectedButton() == ui.Button.OK) {
     // OK ボタンが選択された場合
