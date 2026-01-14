@@ -11,6 +11,11 @@ function onOpen() {
     .addToUi(); // メニューをユーザインターフェースに追加
 }
 
+// アドオンのインストール時に実行される関数
+function onInstall(e) {
+  onOpen(e);
+}
+
 // プロンプトを表示してスライド番号を入力させる関数
 function showPromptForPage() {
   var ui = SlidesApp.getUi(); // ユーザインターフェースを取得
