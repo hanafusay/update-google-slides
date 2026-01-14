@@ -1,7 +1,3 @@
-# Clasp 設定ファイル（個人設定・自動生成）
-.clasp.json
-.clasp.test.json
-
 # その他
 .DS_Store
 *.log
