@@ -1,9 +1,14 @@
 /**
  * テスト環境用設定
  * フォント設定とscriptIdを管理します
+ * 
+ * 使用方法:
+ * 1. このファイルを config.test.js にコピー
+ * 2. YOUR_TEST_SCRIPT_ID_HERE を実際のスクリプトIDに置き換え
+ * 3. 必要に応じてフォント設定を変更
  */
 var CONFIG = {
-  scriptId: "***REMOVED***",
+  scriptId: "YOUR_TEST_SCRIPT_ID_HERE",
   fonts: {
     // すべてのテキストに適用するフォント
     all: {

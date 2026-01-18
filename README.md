@@ -46,14 +46,18 @@ Google スライドを開き、「拡張機能」→「フォントを編集」�
 ```
 update-google-slides-1/
 ├── src/                    # GASソースコード
-│   ├── config.prod.js      # 本番環境用設定（フォント、scriptIdなど）
-│   ├── config.test.js      # テスト環境用設定（フォント、scriptIdなど）
+│   ├── config.prod.js.example      # 本番環境用設定テンプレート
+│   ├── config.test.js.example      # テスト環境用設定テンプレート
+│   ├── config.prod.js      # 本番環境用設定（.exampleからコピーして作成）
+│   ├── config.test.js      # テスト環境用設定（.exampleからコピーして作成）
 │   └── config.js           # 現在の環境設定（自動生成）
 ├── docs/                   # ドキュメント・画像
 ├── Makefile                # ビルドツール
 ├── switch-clasp.sh         # プロジェクト切り替えスクリプト
-├── .clasp.prod.json        # 本番環境のclasp設定
-├── .clasp.test.json        # テスト環境のclasp設定
+├── .clasp.prod.json.template        # 本番環境のclasp設定テンプレート
+├── .clasp.test.json.template        # テスト環境のclasp設定テンプレート
+├── .clasp.prod.json        # 本番環境のclasp設定（.templateからコピーして作成）
+├── .clasp.test.json        # テスト環境のclasp設定（.templateからコピーして作成）
 └── .clasp.json             # 現在の環境設定（自動生成）
 ```
 
@@ -65,11 +69,15 @@ update-google-slides-1/
 
 #### 環境別設定ファイル
 
-- `src/config.prod.js`: 本番環境用の設定
-- `src/config.test.js`: テスト環境用の設定
+- `src/config.prod.js.example`: 本番環境用の設定テンプレート
+- `src/config.test.js.example`: テスト環境用の設定テンプレート
+- `src/config.prod.js`: 本番環境用の設定（`.example`からコピーして作成）
+- `src/config.test.js`: テスト環境用の設定（`.example`からコピーして作成）
 - `src/config.js`: 現在の環境の設定（`switch-clasp.sh`によって自動生成）
 
-**注意**: `src/config.js` は `switch-clasp.sh` によって `config.prod.js` または `config.test.js` から自動生成されます。直接編集する必要はありません。
+**注意**: 
+- `src/config.js` は `switch-clasp.sh` によって `config.prod.js` または `config.test.js` から自動生成されます。直接編集する必要はありません。
+- 初回セットアップ時は、`.example`ファイルをコピーして実際の設定ファイルを作成してください。
 
 #### 設定可能な項目
 
@@ -114,7 +122,27 @@ update-google-slides-1/
 1. 新しい Google スライドを作成
 2. 「拡張機能」→「Apps Script」をクリック
 3. GAS エディタで「プロジェクトの設定」（歯車アイコン）→「スクリプト ID」をコピー
-4. 以下のコマンドで設定：
+4. 設定ファイルを作成：
+
+```bash
+# テスト環境用設定ファイルを作成
+cp src/config.test.js.example src/config.test.js
+# エディタで src/config.test.js を開き、YOUR_TEST_SCRIPT_ID_HERE を実際のスクリプトIDに置き換え
+
+# 本番環境用設定ファイルを作成（本番環境も使用する場合）
+cp src/config.prod.js.example src/config.prod.js
+# エディタで src/config.prod.js を開き、YOUR_PROD_SCRIPT_ID_HERE を実際のスクリプトIDに置き換え
+
+# clasp設定ファイルを作成
+cp .clasp.test.json.template .clasp.test.json
+# エディタで .clasp.test.json を開き、YOUR_TEST_SCRIPT_ID_HERE を実際のスクリプトIDに置き換え
+
+# 本番環境用clasp設定ファイルを作成（本番環境も使用する場合）
+cp .clasp.prod.json.template .clasp.prod.json
+# エディタで .clasp.prod.json を開き、YOUR_PROD_SCRIPT_ID_HERE を実際のスクリプトIDに置き換え
+```
+
+または、`make setup-test`コマンドを使用することもできます：
 
 ```bash
 make setup-test SCRIPT_ID=<取得したスクリプトID>
