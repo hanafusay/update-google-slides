@@ -6,7 +6,7 @@ function processElements(pageElements) {
       case SlidesApp.PageElementType.TEXT_BOX:
         var textRange = pageElement.asShape().getText();
         if (textRange) {
-          applyMontserrat(textRange);
+          applyEnglishFont(textRange);
         }
         break;
 
@@ -18,7 +18,7 @@ function processElements(pageElements) {
             try {
               var cellText = pageElement.asTable().getCell(row, col).getText();
               if (cellText) {
-                applyMontserrat(cellText);
+                applyEnglishFont(cellText);
               }
             } catch (error) {
               // エラーを無視し、次のセルに移動
