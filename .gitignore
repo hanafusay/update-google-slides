@@ -1,3 +1,18 @@
 # その他
 .DS_Store
 *.log
+
+# 機密情報を含む設定ファイル（Publicリポジトリ用）
+.clasp.json
+.clasp.prod.json
+.clasp.test.json
+src/config.js
+src/config.prod.js
+src/config.test.js
+
+# env系
+.env
+.env.local
+.env.development.local
+.env.test.local
+.env.production.local
