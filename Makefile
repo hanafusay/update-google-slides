@@ -17,6 +17,9 @@ setup-test:
 	fi
 	@cp .clasp.test.json.template .clasp.test.json
 	@sed -i '' "s/YOUR_TEST_SCRIPT_ID_HERE/$(SCRIPT_ID)/g" .clasp.test.json
+	@if [ -f "src/config.test.js" ]; then \
+		sed -i '' "s/\"scriptId\": \"[^\"]*\"/\"scriptId\": \"$(SCRIPT_ID)\"/g" src/config.test.js; \
+	fi
 	@echo "✓ テスト用プロジェクトを設定しました: $(SCRIPT_ID)"
 
 # 本番用プロジェクトにプッシュ
