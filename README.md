@@ -183,12 +183,31 @@ make push-prod
 ### 参考リンク
 
 - **内部アプリ**: [Google Workspace Marketplace - 内部アプリ](https://workspace.google.com/u/0/marketplace/app/gas%E3%81%A7googleslide%E3%81%AE%E6%93%8D%E4%BD%9C/***REMOVED***)
-- **本番用スクリプト**: https://script.google.com/home/projects/***REMOVED***/edit
+- **本番用スクリプト**: ***REMOVED***
 - **テスト用スライド**: https://docs.google.com/presentation/d/***REMOVED***/edit
 - **GCP プロジェクト**: https://console.cloud.google.com/welcome?authuser=0&project=***REMOVED***
 - **参考サイト**: https://officeforest.org/wp/google-spreadsheet%E7%94%A8%E3%81%AE%E7%B5%84%E7%B9%94%E5%86%85%E3%82%A2%E3%83%89%E3%82%AA%E3%83%B3%E3%82%92%E4%BD%9C%E6%88%90%E3%81%99%E3%82%8B%E3%80%90gas%E3%80%91/
 
 ## バージョン履歴
+
+### Ver6 (2026/01/18)
+
+**フォント設定の汎用化とPublicリポジトリ化の準備**
+
+- **環境別設定ファイルの追加**
+  - `config.prod.js`、`config.test.js`でフォント名とscriptIDを管理
+  - 環境ごとに異なる設定が可能
+- **フォント名に依存しない設計への変更**
+  - ファイル名・関数名を機能ベースに変更（例: `updateAllTextToKosugi.js` → `updateAllText.js`）
+  - フォント名を変更してもコードの変更が不要
+- **ページ指定機能の追加**
+  - 全てのテキスト、英数字、日本語フォントそれぞれにページ指定オプションを追加
+- **メニューの改善**
+  - 機能ごとにグループ化し、視認性と統一感を向上
+  - メニューテキストのフォント名を動的に生成
+- **Publicリポジトリ化の準備**
+  - 機密情報を含むファイルをgitignoreに追加
+  - example/templateファイルを作成
 
 ### Ver5 (2026/01/14)
 
