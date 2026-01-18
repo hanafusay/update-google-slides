@@ -8,6 +8,7 @@ PROJECT_TYPE=${1:-prod}
 if [ "$PROJECT_TYPE" = "prod" ]; then
   echo "本番用プロジェクトに切り替えます..."
   cp .clasp.prod.json .clasp.json
+  cp src/config.prod.js src/config.js
   echo "✓ 本番用プロジェクトに切り替えました"
   echo "現在の scriptId: $(grep -o '"scriptId": "[^"]*"' .clasp.json | cut -d'"' -f4)"
 elif [ "$PROJECT_TYPE" = "test" ]; then
@@ -22,6 +23,7 @@ elif [ "$PROJECT_TYPE" = "test" ]; then
   fi
   echo "テスト用プロジェクトに切り替えます..."
   cp .clasp.test.json .clasp.json
+  cp src/config.test.js src/config.js
   echo "✓ テスト用プロジェクトに切り替えました"
   echo "現在の scriptId: $(grep -o '"scriptId": "[^"]*"' .clasp.json | cut -d'"' -f4)"
 else
