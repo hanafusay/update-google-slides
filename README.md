@@ -25,7 +25,7 @@ Google スライドのフォントを一括で編集するためのアドオン�
 
 ## インストール方法
 
-1. [Google Workspace Marketplace](https://workspace.google.com/u/0/marketplace/app/gas%E3%81%A7googleslide%E3%81%AE%E6%93%8D%E4%BD%9C/***REMOVED***) からアドオンをインストール
+1. Google Workspace Marketplace からアドオンをインストール（内部アプリのリンクは機密情報のため削除）
 2. ブラウザを更新
 3. Google スライドで「拡張機能」→「フォントを編集」から機能を利用
 
@@ -182,10 +182,9 @@ make push-prod
 
 ### 参考リンク
 
-- **内部アプリ**: [Google Workspace Marketplace - 内部アプリ](https://workspace.google.com/u/0/marketplace/app/gas%E3%81%A7googleslide%E3%81%AE%E6%93%8D%E4%BD%9C/***REMOVED***)
 - **参考サイト**: https://officeforest.org/wp/google-spreadsheet%E7%94%A8%E3%81%AE%E7%B5%84%E7%B9%94%E5%86%85%E3%82%A2%E3%83%89%E3%82%AA%E3%83%B3%E3%82%92%E4%BD%9C%E6%88%90%E3%81%99%E3%82%8B%E3%80%90gas%E3%80%91/
 
-**注意**: 本番用スクリプト、テスト用スライド、GCPプロジェクトのリンクは機密情報を含むため、公開リポジトリからは削除しています。
+**注意**: 本番用スクリプト、テスト用スライド、GCPプロジェクト、内部アプリのリンクは機密情報を含むため、公開リポジトリからは削除しています。
 
 ## バージョン履歴
 
